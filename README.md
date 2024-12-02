@@ -3,15 +3,16 @@ My task was to implement the resolution algorithm for propositional logic (PL) i
 Instructions:
 For data input, the Prolog format can be used, e.g.,
 ```
-proposition(a).
-proposition(b).
-assumption(a, '=>', b).
+pretpostavka(a).
+pretpostavka(b).
+propozicija(a, '=>', b).
 ```
+
 This would represent the formula a⇒ba⇒b. Of course, other (more practical) notations using operators are also possible. Input can be manual or, for instance, loaded from a file.
 After loading the problem description, it is necessary to construct a formula using the appropriate metatheorem of logical consequence for which resolution will attempt to demonstrate a contradiction. The formula must be normalized (into CNF) and a representative of the formula obtained over which the resolution process will be conducted.
 For the implementation of the normalization process, pay attention to the rules provided in the lecture materials and the examples from lab exercises related to operators.
 
- ** My program does not support loading input from file! **
+ ** My program does not support loading input from file!
 
 # Algoritm i implemented is: 
 ```
