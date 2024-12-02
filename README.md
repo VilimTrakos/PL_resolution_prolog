@@ -14,7 +14,7 @@ For the implementation of the normalization process, pay attention to the rules 
 
  ** My program does not support loading input from file!
 
-# Algoritm i implemented is: 
+# Algoritm used: 
 ```
 function PL-Resolution(KB, q)
 // KB, the knowledge base. a sentence in prop logic.
