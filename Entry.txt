@@ -1,0 +1,210 @@
+start.
+propozicija(a).
+propozicija(b).
+pretpostavka(not a -> b).
+pretpostavka(not a -> not b).
+pretpostavka(not a <-> b).
+pretpostavka(not a <-> not b).
+pretpostavka(a <-> not b).
+pretpostavka(a -> not b).
+zakljucak(b).
+end.
+
+propozicija(v).
+propozicija(b).
+propozicija(l).
+propozicija(z).
+pretpostavka(v or b).
+pretpostavka(b -> not l).
+pretpostavka(b -> z).
+pretpostavka(not l).
+zakljucak(z).
+end.
+
+
+//YES
+propozicija(a).
+propozicija(b).
+propozicija(p).
+propozicija(m).
+pretpostavka(p or m).
+pretpostavka(p -> a).
+pretpostavka(m -> b).
+pretpostavka(not a).
+zakljucak(b).
+end.
+
+
+//NO
+propozicija(a).
+propozicija(b).
+pretpostavka(a -> b).
+zakljucak(b).
+end.
+
+//NO
+propozicija(a).
+propozicija(b).
+propozicija(c).
+pretpostavka(a -> b).
+pretpostavka(b -> c).
+zakljucak(c).
+end.
+
+//NO
+propozicija(p).
+propozicija(m).
+propozicija(a).
+propozicija(b).
+zakljucak(c).
+pretpostavka(p or m).
+pretpostavka(not p or a).
+pretpostavka(not m or b).
+pretpostavka(not a).
+pretpostavka(not c).
+end.
+
+//YES
+propozicija(p).
+propozicija(m).
+propozicija(a).
+propozicija(b).
+zakljucak(b).
+pretpostavka(p or m).
+pretpostavka(not p or a).
+pretpostavka(not m or b).
+pretpostavka(not a).
+pretpostavka(not b).
+end.
+
+
+//NO
+propozicija(p).
+propozicija(m).
+propozicija(a).
+propozicija(b).
+zakljucak(c).
+pretpostavka(p or m).
+pretpostavka(not p or a).
+pretpostavka(not m or b).
+pretpostavka(not a).
+pretpostavka(not c).
+end.
+
+//YES
+propozicija(p).
+propozicija(q).
+zakljucak(q).
+pretpostavka(p).
+pretpostavka(p -> q).
+pretpostavka(not q).
+end.
+
+//no
+propozicija(p).
+propozicija(q).
+zakljucak(r).
+pretpostavka(p).
+pretpostavka(q).
+end.
+
+//YES
+propozicija(p).
+propozicija(m).
+propozicija(a).
+propozicija(b).
+zakljucak(not p).
+pretpostavka(p or m).
+pretpostavka(not m).
+pretpostavka(a).
+pretpostavka(not a).
+pretpostavka(not p).
+end.
+
+//YES ???
+propozicija(p).
+propozicija(q).
+zakljucak(not p).
+pretpostavka(p).
+pretpostavka(q).
+pretpostavka(not q).
+end.
+
+
+//yes
+propozicija(p).
+propozicija(q).
+zakljucak(not q).
+pretpostavka(p or q).
+pretpostavka(not p).
+pretpostavka(not q).
+end.
+
+//yes
+propozicija(p).
+propozicija(q).
+propozicija(r).
+zakljucak(not r).
+pretpostavka(p or q).
+pretpostavka(not p or r).
+pretpostavka(not q or not r).
+pretpostavka(not r).
+end.
+
+//NO
+propozicija(p).
+propozicija(q).
+zakljucak(not p).
+pretpostavka(p or q).
+pretpostavka(not q).
+pretpostavka(r).
+end.
+
+
+
+
+
+
+
+ propozicija(a).
+propozicija(b).
+propozicija(p).
+propozicija(m).
+pretpostavka(p or m).
+pretpostavka(p -> a).
+pretpostavka(m -> b).
+pretpostavka(not a).
+zakljucak(b).
+|: |: |: |: |: |: |: |: end.|: 
+Hvala! Unos je zavrsen.
+
+Propozicije unesene:
+- a
+- b
+- p
+- m
+Zakljucak unesen:
+- b
+Pretpostavke unesene (tablicni prikaz):
+1) p or m
+2) not p or a
+3) not m or b
+4) not a
+5) not b
+
+Prema prvom metateoremu o logičkoj posljedici trebamo dokazati:
+((p or m) ∧ (not p or a) ∧ (not m or b) ∧ (not a)) ∧ ¬(b) ≡ ⊥
+
+Pretpostavke u formatu C1, C2, ...:
+C1: p or m
+C2: not p or a
+C3: not m or b
+C4: not a
+C5: not b
+----------------
+C6: a or m res(C1,C2)
+C7: a or b res(C6,C3)
+C8: b res(C7,C4)
+C9: ⊥ res(C8,C5)
+true .
+
